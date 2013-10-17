@@ -1,0 +1,13 @@
+<div class="y event <%= 'active' if (@i == 0) %>">
+    <header class="event-header storyline-item">
+        <h1><%= @event['title'] %></h1>
+        <p class="date"><%= @event['timestamp'] %></p>
+    </header>
+    <% if (@event['stories'].length != 0) %>
+    <div class="event-content">
+        <% @event['stories'].each do |story| %>
+            <%= @story = story; erb :story; %>
+        <% end %>
+    </div>
+    <% end %>
+</div>

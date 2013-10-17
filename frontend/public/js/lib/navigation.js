@@ -45,9 +45,9 @@ define(['jquery', 'lib/events'], function ($, events) {
         if (previousYIndex >= 0) {
             yItemTop = yItems[previousYIndex].offsetTop;
             moveCanvasTo(yItemTop);
-            setActiveY(activeY - 1);
             setActiveX(0);
             moveXContentTo(activeY, 0);
+            setActiveY(activeY - 1);
         }
     }
 
@@ -102,9 +102,19 @@ define(['jquery', 'lib/events'], function ($, events) {
         events.moveDown.add(nextY);
     }
 
+    function scrollToBottom() {
+        setActiveY(yItems.length - 1);
+        $(canvas).addClass('slow');
+        moveCanvasTo(yItems[activeY].offsetTop);
+        setTimeout(function () {
+            $(canvas).removeClass('slow');
+        }, 1000);
+    }
+
     return {
         init: function () {
             bindEvents();
-        }
+        },
+        scrollToBottom: scrollToBottom
     };
 });
