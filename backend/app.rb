@@ -21,6 +21,12 @@ get '/summary/news/:id' do |id|
   model.as_hash.to_json
 end
 
+get '/article' do
+  content_type 'application/json'
+  client = JuicerClient.new
+  client.get_article(params[:url]).to_json
+end
+
 # type: article, audio, video, tweet, image
 
 # storyline -> slot -> items

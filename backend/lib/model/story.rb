@@ -4,7 +4,7 @@ class Story
     @url = @data["@id"]
     @asset_id = @url.split("/")[3..-1].join("/")
     client = ContentApiClient.new
-    @asset = client.get_asset(@asset_id)
+    #@asset = client.get_asset(@asset_id)
   end
   
   def as_hash
@@ -15,8 +15,8 @@ class Story
       type: @data["@type"],
       url: @url,
       asset_id: @asset_id,
-      image: @asset.image,
-      first_paragraph: @asset.paragraphs.first
+      #image: @asset.image,
+      #first_paragraph: @asset.paragraphs.first
     }
   end
 end
