@@ -1,3 +1,8 @@
+@font-face {
+    font-family: GEL;
+    src: url('../fonts/gel.woff');
+}
+
 body {
     background: #222;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -74,6 +79,7 @@ body {
 
 .storyline.active {
     opacity: 1;
+    display: block;
 }
 
 /* Storyline view */
@@ -81,7 +87,7 @@ body {
 .canvas {
     position: relative;
     -webkit-transition: top 0.5s, left 0.5s;
-    margin-top: 10%;
+    margin-top: 12%;
 }
 
 .canvas.slow {
@@ -129,17 +135,18 @@ body {
     width: 12em;
     position: absolute;
     left: 6em;
-    top:0;
+    top: 0;
+    padding: 1em 0;
     text-shadow: 2px 2px 10px rgba(0,0,0,.5);
 }
 
 .event-header h1 {
-    font-size: 1em;
+    font-size: 1.2em;
     line-height: 1.2;
 }
 
 .event-header .date {
-    margin-top: 3em;
+    margin-top: 5em;
     text-transform: uppercase;
     background: #fff;
     color: #333;
@@ -173,7 +180,7 @@ body {
     left: 0;
     bottom: 0;
     width: 31%;
-    padding-top: 5.5em;
+    padding-top: 6em;
     padding-left: 2em;
     background: rgba(0,0,0,.5);
 }
@@ -200,12 +207,12 @@ body {
     right: 0;
     z-index: 100;
     padding: 1em 1em 1em 6.1em;
-    text-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    text-shadow: 2px 2px 10px rgba(0,0,0,.3);
     background: -webkit-linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0));
 }
 
 .app-header h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 .story {
@@ -232,10 +239,20 @@ body {
     right: 0;
 }
 
-.icon {
+.story .icon {
     background: white;
     width: 100px;
     height: 100px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.1);
+    text-align: center;
+    font-size: 65px;
+    line-height: 100px;
+    color: #ccc;
+    -webkit-transition: color 0.5s;
+}
+
+.story.active .icon {
+    color: #333;
 }
 
 .story .secondary .title {
@@ -256,4 +273,8 @@ body {
 
 .story.active .secondary .description {
     height: 4.5em;
+}
+
+.gel {
+    font-family: GEL;
 }

@@ -1,7 +1,7 @@
 <div class="x content storyline-item story">
     <img class="story-image" src="<%= @story['image'] %>">
     <div class="secondary">
-        <div class="icon"></div>
+        <div class="icon gel"><%= @story['format'] == 'VideoFormat' ? '+' : 'Y'; %></div>
         <h1 class="title"><%= @story['title'] %></h1>
         <div class="description-outer">
             <p class="description"><%= @story['description'] %></p>
