@@ -6,8 +6,7 @@ require 'sinatra'
 require 'storyline'
 
 get '/' do
-  @title = 'Storylines' 
-  erb :index
+  redirect '/storylines/4993e6b8-4214-44eb-9c66-67929058850f'
 end
 
 get '/storylines/:id' do
