@@ -1,0 +1,78 @@
+body {
+    background: #222;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    line-height: 1.5;
+    font-size: 22px;
+}
+
+.app {
+    width: 1280px;
+    height: 720px;
+    background: #000;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.video {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-transition: all 1s;
+    -webkit-filter: blur(0px);
+}
+
+#news-video {
+    width: 100%;
+    -webkit-transform: scale(1.03);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.press-red {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    background: #fff;
+    color: #333;
+    padding: 0.2em 0.5em 0.2em 2em;
+    font-family: 'Gill Sans';
+    text-transform: uppercase;
+}
+
+.video.inactive video {
+    -webkit-filter: blur(5px);
+}
+
+.video.inactive .press-red {
+    display: none;
+}
+
+.red-button {
+    display: block;
+    width: 1em;
+    height: 1em;
+    border-radius: 1.5em;
+    position: absolute;
+    background: red;
+    left: 0.5em;
+    top: 0.5em;
+}
+
+.storyline {
+    background: rgba(0,0,0,.7);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    -webkit-transition: opacity 1s;
+    opacity: 0;
+}
+
+.storyline.active {
+    opacity: 1;
+}
