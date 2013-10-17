@@ -14,7 +14,7 @@ class JuicerClient
     json = JSON.parse(response)
     Storyline.new(json["@graph"])
   end
-  
+
   def get_event uri
     response = get("/storylines/graphs?uri=#{uri}")
     json = JSON.parse(response)
@@ -24,6 +24,7 @@ class JuicerClient
   private
   
   def get url
-    RestClient.get(@base_url + url + "&api_key=" + @api_key)
+    RestClient.get(@base_url + url + "&api_key=" + @api_key + "&cb=#{Time.now.to_i}")
   end
+
 end
