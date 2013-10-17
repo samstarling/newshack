@@ -5,6 +5,17 @@ define(['jquery', 'lib/events'], function ($, events) {
         activeY = 0,
         activeX = 0;
 
+    function updateXClasses() {
+        var activeYItem = yItems[activeY],
+            xItems = activeYItem.querySelectorAll('.x'),
+            activeXItem = xItems[activeX];
+
+        if (xItems.length > 0) {
+            $('.x.active').removeClass('active');
+            $(activeXItem).addClass('active');
+        }
+    }
+
     function setActiveX(x) {
         activeX = x;
         updateStatus();
@@ -35,6 +46,7 @@ define(['jquery', 'lib/events'], function ($, events) {
             moveXContentTo(activeY, 0);
             setActiveY(activeY + 1);
             setActiveX(0);
+            updateXClasses();
         }
     }
 
@@ -48,6 +60,7 @@ define(['jquery', 'lib/events'], function ($, events) {
             setActiveX(0);
             moveXContentTo(activeY, 0);
             setActiveY(activeY - 1);
+            updateXClasses();
         }
     }
 
@@ -62,6 +75,7 @@ define(['jquery', 'lib/events'], function ($, events) {
             xItemLeft = xItems[activeX + 1].offsetLeft;
             moveXContentTo(activeY, xItemLeft);
             setActiveX(activeX + 1);
+            updateXClasses();
         }
     }
 
@@ -76,6 +90,7 @@ define(['jquery', 'lib/events'], function ($, events) {
             xItemLeft = xItems[activeX - 1].offsetLeft;
             moveXContentTo(activeY, xItemLeft);
             setActiveX(activeX - 1);
+            updateXClasses();
         }
     }
 
@@ -106,6 +121,7 @@ define(['jquery', 'lib/events'], function ($, events) {
         setActiveY(yItems.length - 1);
         $(canvas).addClass('slow');
         moveCanvasTo(yItems[activeY].offsetTop);
+        updateXClasses();
         setTimeout(function () {
             $(canvas).removeClass('slow');
         }, 1000);
