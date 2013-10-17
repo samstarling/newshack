@@ -18,7 +18,6 @@ class ContentApiClient
   
   def get url
     full_url = @base_url + url + "?api_key=" + @api_key
-    sleep 1
     RestClient.get(full_url, {"X-Candy-Platform" => "desktop", "X-Candy-Audience" => "domestic", "Accept" => "application/json"})
   end
 end
