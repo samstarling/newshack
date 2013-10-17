@@ -15,7 +15,8 @@ class Story
       type: @data["@type"],
       url: @url,
       asset_id: @asset_id,
-      image: @asset.image
+      image: @asset.image,
+      first_paragraph: @asset.paragraphs.first
     }
   end
 end

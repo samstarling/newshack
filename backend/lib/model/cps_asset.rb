@@ -22,10 +22,13 @@ class CPSAsset
       image: @image
     }
   end
+  
+  def paragraphs
+    body = Nokogiri::XML(@body)
+    paragraphs = body.xpath("//xmlns:paragraph").map { |p| p.text.to_s.strip }
+  end
 
   def body
-    body = Nokogiri::XML(@body)
-    paragraphs = body.xpath("//xmlns:paragraph")
     summary = ""
     paragraphs.each do |pg| 
       if pg.attribute('role') == nil
