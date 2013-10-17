@@ -15,9 +15,14 @@ define(['jquery', 'lib/events'], function ($, events) {
         updateStatus();
     }
 
-    function moveCanvasTo(x, y) {
+    function moveCanvasTo(y) {
         canvas.style.top = '-' + y + 'px';
-        canvas.style.left = '-' + x + 'px';
+    }
+
+    function moveXContentTo(yIndex, x) {
+        if (yItems[yIndex].querySelector('.event-content')) {
+            yItems[yIndex].querySelector('.event-content').style.left = '-' + x + 'px';
+        }
     }
 
     function nextY() {
@@ -26,7 +31,8 @@ define(['jquery', 'lib/events'], function ($, events) {
 
         if (nextYIndex < yItems.length) {
             yItemTop = yItems[nextYIndex].offsetTop;
-            moveCanvasTo(0, yItemTop);
+            moveCanvasTo(yItemTop);
+            moveXContentTo(activeY, 0);
             setActiveY(activeY + 1);
             setActiveX(0);
         }
@@ -38,9 +44,10 @@ define(['jquery', 'lib/events'], function ($, events) {
 
         if (previousYIndex >= 0) {
             yItemTop = yItems[previousYIndex].offsetTop;
-            moveCanvasTo(0, yItemTop);
+            moveCanvasTo(yItemTop);
             setActiveY(activeY - 1);
             setActiveX(0);
+            moveXContentTo(activeY, 0);
         }
     }
 
@@ -53,8 +60,7 @@ define(['jquery', 'lib/events'], function ($, events) {
         if (xItems.length > 1 && (activeX + 1) < xItems.length) {
             yItemTop = yItems[activeY].offsetTop;
             xItemLeft = xItems[activeX + 1].offsetLeft;
-
-            moveCanvasTo(xItemLeft, yItemTop);
+            moveXContentTo(activeY, xItemLeft);
             setActiveX(activeX + 1);
         }
     }
@@ -68,8 +74,7 @@ define(['jquery', 'lib/events'], function ($, events) {
         if (xItems.length > 1 && (activeX - 1) >= 0) {
             yItemTop = yItems[activeY].offsetTop;
             xItemLeft = xItems[activeX - 1].offsetLeft;
-
-            moveCanvasTo(xItemLeft, yItemTop);
+            moveXContentTo(activeY, xItemLeft);
             setActiveX(activeX - 1);
         }
     }
