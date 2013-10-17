@@ -1,4 +1,4 @@
-require 'summarize'
+#require 'summarize'
 require 'nokogiri'
 
 class ContentApi
