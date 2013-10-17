@@ -1,7 +1,8 @@
-define(['lib/events', 'lib/dom'], function (events, dom) {
+define(['lib/events', 'lib/dom', 'lib/navigation'], function (events, dom, navigation) {
     function loadApp() {
         dom.storyline.addClass('active').removeClass('inactive');
         dom.video.removeClass('active').addClass('inactive');
+        navigation.scrollToBottom();
     }
 
     function hideApp() {

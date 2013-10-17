@@ -12,7 +12,11 @@ require 'client/videoclient'
 get '/storyline/:id' do
   content_type 'application/json'
   client = JuicerClient.new
-  storyline = client.get_storyline(params[:id])
+  show_empty = false
+  if params[:empty]
+    show_empty = true
+  end
+  storyline = client.get_storyline(params[:id], show_empty)
   storyline.as_hash.to_json
 end
 
@@ -20,6 +24,12 @@ get '/summary/' do
   content_type 'application/json'
   client = VideoClient.new
   video_url = client.get_video "news/business-24562930"
+end
+
+get '/article' do
+  content_type 'application/json'
+  client = JuicerClient.new
+  client.get_article(params[:url]).to_json
 end
 
 # type: article, audio, video, tweet, image

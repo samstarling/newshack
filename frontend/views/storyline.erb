@@ -1,0 +1,22 @@
+<div class="video active">
+    <video src="/video/snip.mp4" id="news-video" preload autoplay loop volume="10"></video>
+    <div class="press-red">
+        <span class="red-button"></span>
+        <p>Press Red</p>
+    </div>
+</div>
+<div class="storyline inactive">
+    <header class="app-header">
+        <h1><%= @title %></h1>
+    </header>
+    <div class="status">
+    <% @events.each do |event| %>
+        <div class="status-circle"></div>
+    <% end %>
+    </div>
+    <div class="canvas">
+        <% @events.each_with_index do |event, i| %>
+            <%= @event = event; @i = i; erb :event %>
+        <% end %>
+    </div>
+</div>
