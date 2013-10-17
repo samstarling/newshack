@@ -20,7 +20,7 @@ class Story
       asset_id: @asset_id,
     }
     if @asset && @asset["image"]
-      hash[:image] = @asset["image"]["src"]
+      hash[:image] = @asset["image"]["origin"]
     end
     if @asset && @asset["format"]
       hash[:format] = @asset["format"]
