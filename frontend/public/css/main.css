@@ -85,7 +85,7 @@ body {
 }
 
 .canvas.slow {
-    -webkit-transition: top 2s ease-in-out, left 1s;
+    -webkit-transition: top 1s ease-in-out, left 1s;
 }
 
 .storyline-item {
@@ -139,7 +139,7 @@ body {
 }
 
 .event-header .date {
-    margin-top: 2em;
+    margin-top: 3em;
     text-transform: uppercase;
     background: #fff;
     color: #333;
@@ -201,7 +201,7 @@ body {
     z-index: 100;
     padding: 1em 1em 1em 6.1em;
     text-shadow: 2px 2px 5px rgba(0,0,0,.5);
-    background: -webkit-linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0));
+    background: -webkit-linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,0));
 }
 
 .app-header h1 {
@@ -210,19 +210,50 @@ body {
 
 .story {
     position: relative;
+    opacity: 0.4;
+    -webkit-transition: opacity 0.3s;
+}
+
+.story.active {
+    opacity: 1;
 }
 
 .story-image {
     width: 100%;
     top: 0;
     left: 0;
+    position: absolute;
 }
 
 .story .secondary {
     position: absolute;
     bottom: 0;
-    background: white;
     left: 0;
     right: 0;
-    padding: 1em;
+}
+
+.icon {
+    background: white;
+    width: 100px;
+    height: 100px;
+}
+
+.story .secondary .title {
+    padding: 20px 20px 0 20px;
+    background: white;
+}
+
+.story .secondary .description-outer {
+    padding: 20px;
+    background: white;
+}
+
+.story .secondary .description {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.5s;
+}
+
+.story.active .secondary .description {
+    height: 4.5em;
 }
