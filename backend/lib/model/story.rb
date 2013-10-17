@@ -21,6 +21,8 @@ class Story
     }
     if @asset && @asset["image"]
       hash[:image] = @asset["image"]["origin"]
+    else
+      hash[:image] = "http://news.bbcimg.co.uk/media/images/48351000/gif/_48351569_640x360-news.gif"
     end
     if @asset && @asset["format"]
       hash[:format] = @asset["format"]
