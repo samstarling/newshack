@@ -1,6 +1,8 @@
 require 'model/story'
 
 class Event
+  attr_reader :stories
+  
   def initialize data
     @data = data
     @stories = if data["taggedOn"]

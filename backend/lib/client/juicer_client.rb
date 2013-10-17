@@ -10,7 +10,7 @@ class JuicerClient
     @api_key = "waf3gwce8wjedceh4aq7p6jc"
   end
   
-  def get_storyline guid
+  def get_storyline guid, show_empty=false
     response = get("/storylines/graphs?uri=http://www.bbc.co.uk/things/#{guid}")
     json = JSON.parse(response)
     Storyline.new(json["@graph"])

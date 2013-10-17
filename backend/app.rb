@@ -10,7 +10,11 @@ require 'client/contentapi_client'
 get '/storyline/:id' do
   content_type 'application/json'
   client = JuicerClient.new
-  storyline = client.get_storyline(params[:id])
+  show_empty = false
+  if params[:empty]
+    show_empty = true
+  end
+  storyline = client.get_storyline(params[:id], show_empty)
   storyline.as_hash.to_json
 end
 
