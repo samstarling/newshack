@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-require 'model/contentapi'
+require 'model/cps_asset'
 
 class ContentApiClient
   def initialize
@@ -11,12 +11,14 @@ class ContentApiClient
   def get_asset id
     response = get("#{id}")
     json = JSON.parse(response)
-    ContentApi.new(json["results"].first)
+    CPSAsset.new(json["results"].first)
   end
   
   private
   
   def get url
-    RestClient.get(@base_url + url + "?api_key=" + @api_key, {"X-Candy-Platform" => "desktop", "X-Candy-Audience" => "domestic", "Accept" => "application/json"})
+    full_url = @base_url + url + "?api_key=" + @api_key
+    sleep 1
+    RestClient.get(full_url, {"X-Candy-Platform" => "desktop", "X-Candy-Audience" => "domestic", "Accept" => "application/json"})
   end
 end

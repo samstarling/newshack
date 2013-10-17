@@ -1,6 +1,14 @@
 class Story
   def initialize data
     @data = data
+    @url = @data["@id"]
+    @asset_id = @url.split("/")[3..-1].join("/")
+    client = ContentApiClient.new
+    @asset = client.get_asset(@asset_id)
+  end
+  
+  def populate_story
+    
   end
   
   def as_hash
@@ -9,8 +17,9 @@ class Story
       description: @data["description"],
       timestamp: @data["dateCreated"],
       type: @data["@type"],
-      url: @data["@id"],
-      asset_id: @data["@id"].split("/")[3..-1].join("/")
+      url: @url,
+      asset_id: @asset_id,
+      image: @asset.image
     }
   end
 end
