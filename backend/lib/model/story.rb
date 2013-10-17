@@ -7,10 +7,6 @@ class Story
     @asset = client.get_asset(@asset_id)
   end
   
-  def populate_story
-    
-  end
-  
   def as_hash
     {
       title: @data["title"],

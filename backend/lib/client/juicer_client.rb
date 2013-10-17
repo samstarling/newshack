@@ -26,5 +26,4 @@ class JuicerClient
   def get url
     RestClient.get(@base_url + url + "&api_key=" + @api_key + "&cb=#{Time.now.to_i}")
   end
-
 end
