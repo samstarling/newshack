@@ -10,7 +10,12 @@ class Storyline
       event_data = data.select { |item| item["@id"] == event_uri }.first
       event = Event.new(event_data)
     end
-    @slots = raw_slots.select { |e| e.stories.empty? == show_empty }.map { |e| e.as_hash }
+    raw_slots = if show_empty == true
+      raw_slots
+    else
+      raw_slots.select { |e| e.stories.empty? == false }
+    end
+    @slots = raw_slots.map { |e| e.as_hash }
   end
   
   def as_hash

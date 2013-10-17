@@ -13,7 +13,7 @@ class JuicerClient
   def get_storyline guid, show_empty=false
     response = get("/storylines/graphs?uri=http://www.bbc.co.uk/things/#{guid}")
     json = JSON.parse(response)
-    Storyline.new(json["@graph"])
+    Storyline.new(json["@graph"], show_empty)
   end
 
   def get_event uri
