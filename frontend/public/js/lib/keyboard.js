@@ -14,6 +14,14 @@ define(['lib/events', 'lib/dom', 'jquery'], function (events, dom, $) {
                 events.loadApp.dispatch();
             } else if (e.keyCode === keys.esc) {
                 events.hideApp.dispatch();
+            } else if (e.keyCode === keys.up) {
+                events.moveUp.dispatch();
+            } else if (e.keyCode === keys.down) {
+                events.moveDown.dispatch();
+            } else if (e.keyCode === keys.right) {
+                events.moveRight.dispatch();
+            } else if (e.keyCode === keys.left) {
+                events.moveLeft.dispatch();
             }
         });
     }
