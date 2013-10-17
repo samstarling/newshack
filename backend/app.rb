@@ -4,10 +4,11 @@ $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 require 'sinatra'
 require 'json'
+
 require 'client/juicer_client'
 require 'client/contentapi_client'
 require 'client/text_teaser_client'
-require 'client/videoclient'
+require 'client/video_client'
 
 get '/storyline/:id' do
   content_type 'application/json'
@@ -31,7 +32,3 @@ get '/article' do
   client = JuicerClient.new
   client.get_article(params[:url]).to_json
 end
-
-# type: article, audio, video, tweet, image
-
-# storyline -> slot -> items

@@ -1,9 +1,10 @@
 require 'nokogiri'
 
 class CPSAsset
-  attr_reader :image, :video_href
+  attr_reader :image, :video_href, :data
   
   def initialize data
+    @data = data
     @body = data['body']
     @summary = data['summary']
     @created = data['lastUpdated']
@@ -14,7 +15,14 @@ class CPSAsset
     end
 
     @video_href = begin
-      data['media']['videos']['body'].first[1]['href']
+      videos = data['media']['videos']
+      if videos
+        if videos['body']
+          videos['body'].first[1]['href']
+        elsif videos['primary']
+          videos['primary'].first[1]['href']
+        end
+      end
     rescue => e
       puts e
       nil
