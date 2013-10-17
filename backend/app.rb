@@ -5,10 +5,11 @@ $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 require 'sinatra'
 require 'json'
 require 'client/juicer_client'
+require 'client/contentapi_client'
 
 get '/storyline/:id' do
   client = JuicerClient.new
-  storyline = client.get_storyline "80e4686b-6303-4489-941d-8658ef070729"
+  storyline = client.get_storyline "4993e6b8-4214-44eb-9c66-67929058850f"
   storyline.as_hash.to_json
   #{
   #  storyline: {
@@ -30,6 +31,12 @@ get '/storyline/:id' do
   #    }
   #  }
   #}.to_json
+end
+
+get '/summary/news/:id' do |id|
+    client = ContentApiClient.new
+    model = client.get_asset "news/#{id}"
+    model.as_hash.to_json
 end
 
 # type: article, audio, video, tweet, image

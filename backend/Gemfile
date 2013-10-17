@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'json'
 gem 'rest-client'
+gem 'nokogiri'
+#gem 'summarize'
 
 group :development do
   gem 'shotgun'
