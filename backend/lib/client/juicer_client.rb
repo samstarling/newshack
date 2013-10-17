@@ -1,5 +1,6 @@
 require 'json'
 require 'rest-client'
+require 'open-uri'
 
 require 'model/storyline'
 
@@ -22,7 +23,8 @@ class JuicerClient
   end
   
   def get_article url
-    response = get("/articles.json?binding=url&limit=1&where=filter(%3Furl%20%3D%20%3Chttp%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Fworld-europe-24530026%3E)%20.")
+    encoded_url = URI::encode(url)
+    response = get("/articles.json?binding=url&limit=1&where=filter(%3Furl%20%3D%20%3C#{encoded_url}%3E)%20.")
     json = JSON.parse(response)
     json
   end

@@ -3,20 +3,28 @@ class Story
     @data = data
     @url = @data["@id"]
     @asset_id = @url.split("/")[3..-1].join("/")
-    client = ContentApiClient.new
-    #@asset = client.get_asset(@asset_id)
+    client = JuicerClient.new
+    if @url.include? "http://www.bbc.co.uk"
+      article = client.get_article(@url)
+      @asset = article["articles"].first
+    end
   end
   
   def as_hash
-    {
+    hash = {
       title: @data["title"],
       description: @data["description"],
       timestamp: @data["dateCreated"],
       type: @data["@type"],
       url: @url,
       asset_id: @asset_id,
-      #image: @asset.image,
-      #first_paragraph: @asset.paragraphs.first
     }
+    if @asset && @asset["image"]
+      hash[:image] = @asset["image"]["src"]
+    end
+    if @asset && @asset["format"]
+      hash[:format] = @asset["format"]
+    end
+    hash
   end
 end
