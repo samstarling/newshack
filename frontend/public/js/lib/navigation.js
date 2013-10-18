@@ -110,11 +110,17 @@ define(['jquery', 'lib/events'], function ($, events) {
         yItems[activeY].className = 'y event active';
     }
 
+    function openActiveContent() {
+        var activeContent = yItems[activeY].querySelector('.x.active');
+        events.openContent.dispatch(activeContent);
+    }
+
     function bindEvents() {
         events.moveRight.add(nextX);
         events.moveLeft.add(previousX);
         events.moveUp.add(previousY);
         events.moveDown.add(nextY);
+        events.pressEnter.add(openActiveContent);
     }
 
     function scrollToBottom() {
