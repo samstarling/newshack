@@ -1,4 +1,4 @@
-<div class="x content storyline-item story">
+<div class="x content storyline-item story <%= @story['format'] == 'VideoFormat' ? 'video' : 'text'; %>" data-video-url="<%= @story['video'] %>">
     <img class="story-image" src="<%= @story['image'] %>">
     <div class="secondary">
         <div class="icon gel"><%= @story['format'] == 'VideoFormat' ? '+' : 'Y'; %></div>

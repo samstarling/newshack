@@ -337,3 +337,28 @@ body {
     position: absolute;
     background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
 }
+
+.content-video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: gray;
+    z-index: 1000;
+    opacity: 0;
+    display: none;
+}
+
+.content-video.active {
+    display: block;
+    opacity: 1;
+}
+
+.content-video video {
+    width: 100%;
+    -webkit-transform: scale(1.03);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
