@@ -371,3 +371,16 @@ body {
 .content-video.active video {
     -webkit-transform: scale(1.03);
 }
+
+#blocks {
+    position: absolute;
+    z-index: 100;
+    width: 100px;
+    top: 32px;
+    left: 133px;
+    opacity: 0.8;
+}
+
+#blocks img {
+    width: 100%;
+}
