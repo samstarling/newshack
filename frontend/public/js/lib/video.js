@@ -16,8 +16,10 @@ define(['jquery', 'lib/dom', 'lib/events'], function ($, dom, events) {
         });
         events.pressEsc.add(function () {
             $('.content-video').removeClass('active');
-            backgroundVideo.muted = false;
-            contentVideo.src = '';
+            setTimeout(function () {
+                backgroundVideo.muted = false;
+                contentVideo.src = '';
+            }, 1000);
         });
     }
 
