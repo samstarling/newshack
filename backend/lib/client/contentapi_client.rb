@@ -48,7 +48,7 @@ class ContentApiClient
       response = RestClient.get(full_url, {"X-Candy-Platform" => "desktop", "X-Candy-Audience" => "domestic", "Accept" => "application/json"})
       puts "RESPONSE #{response.code}"
       if @cache
-        cache.set(url, response, 3600)
+        @cache.set(url, response, 3600)
       end
       return response
     rescue => e
