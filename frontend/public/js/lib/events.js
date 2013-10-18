@@ -7,6 +7,7 @@ define(['signals'], function (signals) {
         moveLeft: new signals.Signal(),
         moveRight: new signals.Signal(),
         pressEnter: new signals.Signal(),
-        openContent: new signals.Signal()
+        openContent: new signals.Signal(),
+        pressS: new signals.Signal()
     };
 });
