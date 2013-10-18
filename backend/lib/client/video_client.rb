@@ -10,10 +10,10 @@ class VideoClient
     @end_url = "/mediaset/journalism-http-mobile"
   end
   
-  def ContentApiClient asset_uri
+  def get_video asset_uri
     client = ContentApiClient.new
     asset = client.get_asset(asset_uri)
-    if asset.video_href 
+    if asset && asset.video_href
       response = get_raw(asset.video_href)
       playlist = Nokogiri::XML(response)
       vpid = playlist.xpath('//xmlns:playlist//xmlns:item//xmlns:mediator').attribute('identifier')
