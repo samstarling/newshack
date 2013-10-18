@@ -37,6 +37,12 @@ class Story
         end
       end
     end
+    if @asset_id
+      asset = ContentApiClient.new.get_asset(@asset_id)
+      if asset
+        hash[:paragraphs] = asset.paragraphs
+      end
+    end
     hash
   end
 end
