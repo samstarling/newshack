@@ -9,6 +9,8 @@ exploring the full timeline of the story that is currently being discussed on ai
 
 ![Screenshot](https://s3-eu-west-1.amazonaws.com/bbc-news-video/screenshot.png)
 
+### Instructions
+
 * Press `s` to start
 * Press `r` to trigger the Red Button
 * Use the arrow keys and `Enter` to navigate the storyline
