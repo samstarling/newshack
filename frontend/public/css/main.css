@@ -298,26 +298,42 @@ body {
 
 .article {
     z-index: 300;
-    top: 1280px;
-    height: 100000px;
+    top: 720px;
+    height: 562px;
     left: 10%;
     right: 10%;
     position: absolute;
     background: rgba(255,255,255,1);
     color: #111;
     padding: 2em;
-    overflow-y: scroll;
     font-size: 1.2em;
-    -webkit-transition: top 0.45s ease-out;
+    -webkit-transition: top 0.3s ease-out;
     box-shadow: 5px 5px 10px rgba(0,0,0,.2);
 }
 
 .article.active {
-    top: 0px;
+    top: 2em;
 }
 
 .article h1 {
     font-size: 1.5em;
     margin-bottom: 0.5em;
     color: #333;
+}
+
+.story .article-content {
+    display: none;
+}
+
+.article-content p {
+    margin: 0 0 1em 0;
+}
+
+.article .gradient {
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 200px;
+    position: absolute;
+    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
 }

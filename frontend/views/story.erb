@@ -5,6 +5,9 @@
         <h1 class="title"><%= @story['title'] %></h1>
         <div class="description-outer">
             <p class="description"><%= @story['description'] %></p>
+            <% if @story['paragraphs'] %>
+            <div class="article-content"><p><%= @story['paragraphs'].join('</p><p>') %></p></div>
+            <% end %>
         </div>
     </div>
 </div>
