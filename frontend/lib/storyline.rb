@@ -15,7 +15,7 @@ class Storyline
 
   def get_data id
     if (@fixtures == 'true')
-      fixture = File.read('fixtures/storyline.json')
+      fixture = File.read('fixtures/storyline_with_paragraphs.json')
       @raw = JSON.parse(fixture)
     else
       response = RestClient.get(BASE_URL + '/storyline/' + id)
