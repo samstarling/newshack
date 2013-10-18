@@ -10,7 +10,7 @@ class VideoClient
     @end_url = "/mediaset/journalism-http-mobile"
   end
   
-  def get_video asset_uri
+  def ContentApiClient asset_uri
     client = ContentApiClient.new
     asset = client.get_asset(asset_uri)
     if asset.video_href 

@@ -1,7 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dalli (2.6.4)
     json (1.8.0)
+    memcachier (0.0.2)
     mime-types (1.25)
     mini_portile (0.5.1)
     nokogiri (1.6.0)
@@ -23,7 +25,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dalli
   json
+  memcachier
   nokogiri
   rest-client
   shotgun
