@@ -1,4 +1,4 @@
-define(['lib/events', 'lib/dom', 'lib/navigation'], function (events, dom, navigation) {
+define(['lib/events', 'lib/dom', 'lib/navigation', 'jquery'], function (events, dom, navigation, $) {
     function loadApp() {
         dom.storyline.addClass('active').removeClass('inactive');
         dom.video.removeClass('active').addClass('inactive');
@@ -13,7 +13,11 @@ define(['lib/events', 'lib/dom', 'lib/navigation'], function (events, dom, navig
     return {
         init: function () {
             events.loadApp.add(loadApp);
-            events.hideApp.add(hideApp);
+            events.pressEsc.add(function () {
+                if ($('.reading').length === 0) {
+                    hideApp();
+                }
+            });
         }
     };
 });

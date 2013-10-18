@@ -5,7 +5,8 @@ define(['lib/events', 'lib/dom', 'jquery'], function (events, dom, $) {
         right: 39,
         left: 37,
         r: 82,
-        esc: 27
+        esc: 27,
+        enter: 13
     };
 
     function bindKeysToEvents() {
@@ -13,7 +14,7 @@ define(['lib/events', 'lib/dom', 'jquery'], function (events, dom, $) {
             if (e.keyCode === keys.r) {
                 events.loadApp.dispatch();
             } else if (e.keyCode === keys.esc) {
-                events.hideApp.dispatch();
+                events.pressEsc.dispatch();
             } else if (e.keyCode === keys.up) {
                 events.moveUp.dispatch();
             } else if (e.keyCode === keys.down) {
@@ -22,6 +23,8 @@ define(['lib/events', 'lib/dom', 'jquery'], function (events, dom, $) {
                 events.moveRight.dispatch();
             } else if (e.keyCode === keys.left) {
                 events.moveLeft.dispatch();
+            } else if (e.keyCode === keys.enter) {
+                events.pressEnter.dispatch();
             }
         });
     }
