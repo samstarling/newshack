@@ -17,7 +17,10 @@ class VideoClient
       playlist = Nokogiri::XML(response)
       vpid = playlist.xpath('//xmlns:playlist//xmlns:item//xmlns:mediator').attribute('identifier')
       mediaselector = JSON.parse(get vpid)
-      mediaselector['media'][0]['connection'][0]['href']
+      #sorted_media = mediaselector['media'].sort { |a, b| a['width'] <=> b['width'] }
+      
+      connections = mediaselector['media'].map { |m| m["connection"] }.flatten
+      connections.select { |c| c["supplier"] == "sis_news_http" }.map { |c| c["href"] }.select { |h| h.include? "400" }.first
     else
       nil
     end
