@@ -28,7 +28,13 @@ class Story
       hash[:format] = @asset["format"]
       if @asset["format"] == "VideoFormat"
         video_client = VideoClient.new
-        hash[:video] = video_client.get_video(@asset_id)
+        video_model = video_client.get_video(@asset_id)
+        if video_model.href
+          hash[:video] = video_model.href
+        end
+        if video_model.img
+          hash[:image] = video_model.img
+        end
       end
     end
     hash

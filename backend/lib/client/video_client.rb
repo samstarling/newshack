@@ -2,6 +2,7 @@ require 'json'
 require 'rest-client'
 
 require 'model/storyline'
+require 'model/video'
 
 class VideoClient
   def initialize
@@ -16,13 +17,13 @@ class VideoClient
       response = get_raw(asset.video_href)
       playlist = Nokogiri::XML(response)
       vpid = playlist.xpath('//xmlns:playlist//xmlns:item//xmlns:mediator').attribute('identifier')
+      video_img = playlist.xpath("//xmlns:playlist//xmlns:link[@rel='holding']").attribute('href')
       mediaselector = JSON.parse(get vpid)
-      #sorted_media = mediaselector['media'].sort { |a, b| a['width'] <=> b['width'] }
-      
       connections = mediaselector['media'].map { |m| m["connection"] }.flatten
-      connections.select { |c| c["supplier"] == "sis_news_http" }.map { |c| c["href"] }.select { |h| h.include? "400" }.first
+      href = connections.select { |c| c["supplier"] == "sis_news_http" }.map { |c| c["href"] }.select { |h| h.include? "400" }.first
+      Video.new href, video_img
     else
-      nil
+      Video.new nil, nil
     end
   end
   
