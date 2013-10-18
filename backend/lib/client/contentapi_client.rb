@@ -52,7 +52,7 @@ class ContentApiClient
       end
       return response
     rescue => e
-      puts "RESPONSE #{e.response.code}"
+      puts "EXCEPTION #{e}"
       nil
     end
   end
