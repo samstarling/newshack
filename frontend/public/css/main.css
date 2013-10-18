@@ -55,6 +55,10 @@ body {
     -webkit-filter: blur(3px);
 }
 
+.video.off {
+    display: none;
+}
+
 .red-button {
     display: block;
     width: 1em;
@@ -370,4 +374,17 @@ body {
 
 .content-video.active video {
     -webkit-transform: scale(1.03);
+}
+
+#blocks {
+    position: absolute;
+    z-index: 100;
+    width: 100px;
+    top: 32px;
+    left: 133px;
+    opacity: 0.8;
+}
+
+#blocks img {
+    width: 100%;
 }

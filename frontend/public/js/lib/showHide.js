@@ -18,6 +18,17 @@ define(['lib/events', 'lib/dom', 'lib/navigation', 'jquery'], function (events, 
                     hideApp();
                 }
             });
+            events.pressS.add(function () {
+                var video = document.getElementById('news-video');
+
+                if (video.paused === true) {
+                    video.play();
+                } else {
+                    video.pause(); 
+                    video.currentTime = 0;
+                }
+                $('#news-video-wrapper').toggleClass('off');
+            });
         }
     };
 });

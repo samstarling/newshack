@@ -6,7 +6,8 @@ define(['lib/events', 'lib/dom', 'jquery'], function (events, dom, $) {
         left: 37,
         r: 82,
         esc: 27,
-        enter: 13
+        enter: 13,
+        s: 83
     };
 
     function bindKeysToEvents() {
@@ -25,6 +26,8 @@ define(['lib/events', 'lib/dom', 'jquery'], function (events, dom, $) {
                 events.moveLeft.dispatch();
             } else if (e.keyCode === keys.enter) {
                 events.pressEnter.dispatch();
+            } else if (e.keyCode === keys.s) {
+                events.pressS.dispatch();
             }
         });
     }
