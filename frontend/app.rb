@@ -6,7 +6,7 @@ require 'sinatra'
 require 'storyline'
 
 get '/' do
-  redirect '/storylines/4993e6b8-4214-44eb-9c66-67929058850f'
+  redirect '/storylines/4993e6b8-4214-44eb-9c66-67929058850f?fixtures=true'
 end
 
 get '/testcard' do
